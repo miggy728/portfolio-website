@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JUAN MIGUEL CORPUZ // MAXIMALIST PORTFOLIO & CV</title>
+
+  <!-- Typography: Neo-Brutalist & Tech Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-dark: #07070d;
+      --neon-pink: #ff2a85;
+      --electric-blue: #0051ff;
+      --cyan-bright: #00f0ff;
+      --acid-yellow: #f5ee38;
+      --card-bg: rgba(14, 14, 24, 0.95);
+      --border-thick: 3px solid #000;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    ::selection {
+      background: var(--neon-pink);
+      color: #000;
+    }
+
+    /* Grid Overlay */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-size: 45px 45px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 42, 133, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 81, 255, 0.08) 1px, transparent 1px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Maximalist Glowing 3D Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.75;
+      transition: transform 0.1s ease-out;
+    }
+
+    .orb-1 {
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle at 35% 30%, #00f0ff, #8a2be2 50%, #05051a 90%);
+      box-shadow: 0 0 50px rgba(138, 43, 226, 0.5);
+      top: 10%;
+      left: 35%;
+    }
+
+    .orb-2 {
+      width: 130px;
+      height: 130px;
+      background: radial-gradient(circle at 30% 30%, #ff2a85, #3b0066 65%, #000 100%);
+      box-shadow: 0 0 35px rgba(255, 42, 133, 0.5);
+      top: 25%;
+      left: 8%;
+    }
+
+    .orb-3 {
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at 40% 30%, #ff66c4, #0051ff 70%, #020214 100%);
+      box-shadow: 0 0 40px rgba(0, 81, 255, 0.5);
+      top: 55%;
+      left: 28%;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+      background: rgba(7, 7, 13, 0.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .star-badge {
+      background: var(--neon-pink);
+      color: #000;
+      padding: 0.3rem 0.6rem;
+      font-weight: 900;
+      font-size: 1.1rem;
+      border: 2px solid #fff;
+      transform: rotate(-3deg);
+    }
+
+    .logo-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--cyan-bright);
+      text-shadow: 0 0 8px var(--cyan-bright);
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-tagline-box {
+      border: 3px solid #fff;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1.5rem;
+      box-shadow: 6px 6px 0px var(--cyan-bright);
+    }
+
+    .hero-title-area {
+      text-align: right;
+    }
+
+    .hero-sub {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      color: var(--cyan-bright);
+      font-size: 1rem;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      line-height: 0.88;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 6px 6px 0px var(--neon-pink), -4px -4px 0px var(--electric-blue);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-chips {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      background: #000;
+      border: 2px solid var(--neon-pink);
+      color: #fff;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.8rem;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+    }
+
+    /* Section Titles */
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 4.5rem 0 1.8rem 0;
+    }
+
+    .section-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 3px 3px 0px var(--electric-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .title-line {
+      flex: 1;
+      height: 3px;
+      background: repeating-linear-gradient(90deg, var(--neon-pink), var(--neon-pink) 10px, transparent 10px, transparent 20px);
+    }
+
+    /* =========================================
+       LIVE FLAGSHIP WEBSITES SHOWCASE (100% SCALE FIX)
+       ========================================= */
+    .projects-container {
+      background: var(--card-bg);
+      border: 3px solid #fff;
+      box-shadow: 8px 8px 0px var(--neon-pink);
+      padding: 2rem;
+    }
+
+    .tab-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+      border-bottom: 2px solid rgba(255,255,255,0.15);
+      padding-bottom: 1.2rem;
+    }
+
+    .tab-btn {
+      background: #000;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 0.6rem 1.2rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--neon-pink);
+      color: #000;
+      transform: translate(-3px, -3px);
+      box-shadow: 4px 4px 0px var(--cyan-bright);
+    }
+
+    .project-showcase {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .browser-frame {
+      background: #000;
+      border: 2px solid #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 6px 6px 0px var(--electric-blue);
+      height: 480px;
+    }
+
+    .browser-top {
+      background: #1a1a2e;
+      padding: 0.5rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 2px solid #fff;
+      z-index: 5;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .browser-url {
+      background: #0b0b14;
+      color: #888;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Container na humahawak sa exact scaling */
+    .browser-body {
+      flex: 1;
+      position: relative;
+      background: #0a0a14;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Fixed Desktop Virtual Viewport for 100% Scale Precision */
+    .iframe-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .live-iframe {
+      border: none;
+      display: block;
+      background: #000;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1440px; /* Virtual standard desktop width */
+      height: 900px; /* Virtual standard desktop height */
+      transform-origin: top left;
+    }
+
+    .fallback-preview {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      width: 100%;
+      height: 100%;
+    }
+
+    .fallback-preview i {
+      font-size: 3.5rem;
+      color: var(--cyan-bright);
+      margin-bottom: 1rem;
+    }
+
+    .project-info-pane {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1.8rem;
+      border-left: 4px solid var(--neon-pink);
+    }
+
+    .project-info-pane h3 {
+      font-size: 1.7rem;
+      font-family: 'Anton', sans-serif;
+      letter-spacing: 1px;
+      color: var(--cyan-bright);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-info-pane p {
+      font-size: 0.95rem;
+      color: #ddd;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stack-tag {
+      background: var(--electric-blue);
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+    }
+
+    .action-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    /* SELECTED PROJECTS GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-card {
+      background: var(--card-bg);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.8);
+      overflow: hidden;
+    }
+
+    .gallery-card:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 8px 8px 0px var(--cyan-bright);
+      border-color: #fff;
+    }
+
+    .gallery-card.extra-project {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      background: #000;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+      overflow: hidden;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.85) contrast(1.1);
+    }
+
+    .gallery-card:hover .gallery-img {
+      transform: scale(1.08);
+      filter: brightness(1) contrast(1.15);
+    }
+
+    .gallery-img-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid var(--cyan-bright);
+      color: var(--cyan-bright);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+
+    .gallery-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .gallery-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .gallery-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--neon-pink);
+      font-weight: 700;
+    }
+
+    .gallery-card h4 {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-card p {
+      font-size: 0.88rem;
+      color: #ccc;
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .gallery-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 0.8rem;
+      border-top: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .gallery-link {
+      color: var(--acid-yellow);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .gallery-link:hover {
+      color: var(--neon-pink);
+    }
+
+    .see-more-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    /* CV Grid & Cards */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cv-card {
+      background: var(--card-bg);
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      padding: 1.8rem;
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.8);
+    }
+
+    .card-cyan { border-top: 6px solid var(--cyan-bright); }
+    .card-yellow { border-top: 6px solid var(--acid-yellow); }
+
+    .card-header {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #fff;
+    }
+
+    /* Timelines */
+    .timeline {
+      padding-left: 1.2rem;
+      border-left: 2px dashed rgba(255, 255, 255, 0.3);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -1.65rem;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background: var(--neon-pink);
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--cyan-bright);
+      font-weight: 700;
+    }
+
+    .timeline-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .timeline-org {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    /* Technical Skills Matrix */
+    .skills-matrix-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .matrix-card {
+      background: #0e0e18;
+      border: 1px solid #1a1a2b;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .matrix-card-pink {
+      border-top: 4px solid var(--neon-pink);
+    }
+
+    .matrix-card-blue {
+      border-top: 4px solid var(--electric-blue);
+    }
+
+    .matrix-header {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .matrix-header i {
+      font-size: 1.3rem;
+    }
+
+    .matrix-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .matrix-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .matrix-label {
+      font-family: 'Anton', sans-serif;
+      font-size: 0.95rem;
+      color: var(--acid-yellow);
+      letter-spacing: 1.5px;
+      margin-bottom: 0.7rem;
+      text-transform: uppercase;
+    }
+
+    .matrix-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .matrix-pill {
+      background: #080811;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.45rem 0.85rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .matrix-pill:hover {
+      background: #14142b;
+      border-color: var(--cyan-bright);
+      color: var(--cyan-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 240, 255, 0.2);
+    }
+
+    /* Buttons */
+    .brutal-btn {
+      background: #000;
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 2px solid #fff;
+      box-shadow: 4px 4px 0px var(--cyan-bright);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .brutal-btn:hover {
+      background: #fff;
+      color: #000;
+      box-shadow: 2px 2px 0px var(--cyan-bright);
+      transform: translate(2px, 2px);
+    }
+
+    .btn-pink {
+      box-shadow: 4px 4px 0px var(--neon-pink);
+    }
+    .btn-pink:hover {
+      background: var(--neon-pink);
+      color: #000;
+      box-shadow: 2px 2px 0px #fff;
+    }
+
+    .btn-outline {
+      box-shadow: 4px 4px 0px #fff;
+    }
+    .btn-outline:hover {
+      background: var(--electric-blue);
+      color: #fff;
+      box-shadow: 2px 2px 0px var(--cyan-bright);
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 10;
+      background: var(--neon-pink);
+      color: #000;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 3px solid #000;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-btn {
+      background: #000;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      border: 2px solid #fff;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      background: var(--electric-blue);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid, .project-showcase, .cv-grid, .skills-matrix-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title-area {
+        text-align: left;
+      }
+      .hero-chips {
+        justify-content: flex-start;
+      }
+      .browser-frame {
+        height: 380px;
+      }
+      .orb-1 { width: 140px; height: 140px; left: 60%; }
+      .orb-2 { width: 90px; height: 90px; }
+      .orb-3 { width: 110px; height: 110px; }
+      header, footer {
+        padding: 1.2rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <!-- Animated Parallax Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-badge">
+      <div class="star-badge"><i class="fa-solid fa-asterisk"></i> PORTFOLIO</div>
+      <div class="logo-name">MIGS.DEV</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#showcase">Live Showcase</a></li>
+        <li><a href="#gallery">Project Gallery</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certs">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="about">
+      <div class="hero-grid">
+        <div class="hero-tagline-box">
+          <p style="font-family: 'Space Mono'; font-size: 0.85rem; color: var(--cyan-bright); margin-bottom: 0.5rem;">
+            // CAREER OBJECTIVE
+          </p>
+          <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+            To gain practical experience and enhance my skills in system administration through hands-on tasks, collaboration with the team, and exposure to real-world projects[cite: 1].
+          </p>
+          <div style="font-family: 'Space Mono'; font-size: 0.8rem; color: #aaa; margin-bottom: 1.2rem;">
+            <p><i class="fa-solid fa-location-dot" style="color:var(--neon-pink)"></i> Blk 1 Lot 19 Amore subd, Mulawin, Tanza Cavite[cite: 1]</p>
+            <p><i class="fa-solid fa-phone" style="color:var(--cyan-bright)"></i> +639943441351[cite: 1]</p>
+            <p><i class="fa-solid fa-envelope" style="color:var(--acid-yellow)"></i> miguelcorpuz728@gmail.com[cite: 1]</p>
+          </div>
+          <button onclick="window.print()" class="brutal-btn btn-pink">
+            <i class="fa-solid fa-print"></i> Print / Save CV
+          </button>
+        </div>
+
+        <div class="hero-title-area">
+          <span class="hero-sub">// BSIT UNDERGRADUATE & DEV</span>
+          <h1 class="hero-name">JUAN MIGUEL CORPUZ</h1>
+          <div class="hero-chips">
+            <span class="chip">REACT / NEXT.JS</span>
+            <span class="chip">TYPESCRIPT</span>
+            <span class="chip">SYSTEM ADMIN</span>
+            <span class="chip">LIVESTREAM OPS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE FLAGSHIP WEBSITES SHOWCASE (INTERACTIVE BROWSER) -->
+    <section id="showcase">
+      <div class="section-title-wrap">
+        <h2 class="section-title"><i class="fa-solid fa-desktop"></i> Live Website Showcase</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="projects-container">
+        <!-- Interactive Flagship Tabs -->
+        <div class="tab-bar" id="projectTabBar">
+          <button class="tab-btn active" data-index="0">
+            <i class="fa-solid fa-gamepad"></i> 01. Space Gunner Survival
+          </button>
+          <button class="tab-btn" data-index="1">
+            <i class="fa-solid fa-video"></i> 02. Stream Control Hub
+          </button>
+          <button class="tab-btn" data-index="2">
+            <i class="fa-solid fa-database"></i> 03. Enterprise Admin Suite
+          </button>
+        </div>
+
+        <!-- Dynamic Live Showcase Frame -->
+        <div class="project-showcase">
+          <div class="browser-frame">
+            <div class="browser-top">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="browser-url" id="mockUrl">https://miggy728.github.io/space-gunner-survival/</span>
+            </div>
+            
+            <div class="browser-body" id="browserBody">
+              <!-- Virtual Desktop Wrapper -->
+              <div class="iframe-wrapper" id="iframeWrapper">
+                <iframe 
+                  id="liveFrame" 
+                  class="live-iframe" 
+                  src="about:blank" 
+                  title="Project Live Preview"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  loading="lazy">
+                </iframe>
+              </div>
+              
+              <div class="fallback-preview" id="fallbackPreview">
+                <i class="fa-solid fa-code" id="mockIcon"></i>
+                <h3 id="mockTitle" style="font-family:'Anton'; font-size: 1.8rem; letter-spacing: 1px;">TECH PORTAL</h3>
+                <p style="color: #aaa; font-size: 0.85rem;" id="mockSub">Interactive Front-End Architecture</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info-pane">
+            <div>
+              <h3 id="projTitle">Space Gunner Survival</h3>
+              <p id="projDesc">
+                A fast-paced sci-fi roguelite built with React, TypeScript, HTML5 Canvas, and Tailwind CSS, featuring mouse-aimed combat, evolving weapons, dynamic alien waves, and epic boss battles.
+              </p>
+              <div class="stack-tags" id="projTags">
+                <span class="stack-tag">React</span>
+                <span class="stack-tag">TypeScript</span>
+                <span class="stack-tag">Tailwind CSS</span>
+                <span class="stack-tag">HTML5 Canvas</span>
+              </div>
+            </div>
+
+            <div class="action-links">
+              <a href="https://miggy728.github.io/space-gunner-survival/" target="_blank" class="brutal-btn" id="projLink">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live Website
+              </a>
+              <a href="https://github.com/miggy728/space-gunner-survival" target="_blank" class="brutal-btn btn-outline" id="repoLink">
+                <i class="fa-brands fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS GALLERY -->
+    <section id="gallery">
+      <div class="section-title-wrap">
+        <h2 class="section-title"><i class="fa-solid fa-shapes"></i> Selected Projects Gallery</h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="gallery-grid" id="projectsGallery">
+        <!-- 1st Project -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">REACT + TS</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80" alt="Cloud Dashboard Web App Preview" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_01 // WEB PLATFORM</span>
+              </div>
+              <h4>Modern Cloud Telemetry Dashboard</h4>
+              <p>High-speed telemetry data visualization system with dynamic dark-mode dashboards, interactive metrics, and secured RESTful endpoints.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: COMPLETED</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2nd Project -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">OBS + VMIX</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=700&q=80" alt="Broadcast Stream Engine Preview" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_02 // BROADCAST SUITE</span>
+              </div>
+              <h4>Dynamic Lyric & Lower-Third Engine</h4>
+              <p>Automated broadcasting engine generating synchronized worship lyrics and customized event lower-thirds over local network sockets.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: PRODUCTION</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3rd Project -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">PHP + PENTEST</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=700&q=80" alt="Cybersecurity Lab Preview" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_03 // SECURITY LAB</span>
+              </div>
+              <h4>SecUpload Payload Inspector</h4>
+              <p>Defensive penetration testing tool analyzing server-side file upload hardening, MIME validation, and payload integrity checks.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: RESEARCH</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4th Project -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">JAVA + SQL</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=700&q=80" alt="Database Management System Preview" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_04 // DATABASE SYSTEM</span>
+              </div>
+              <h4>Enterprise Relational Data Hub</h4>
+              <p>Object-oriented data record and inventory management system with indexed queries, schema validation, and automated reporting modules.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: ARCHIVED</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5th Project -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">FIGMA + CSS3</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80" alt="Brutalist UI Kit Design Preview" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_05 // UI/UX DESIGN</span>
+              </div>
+              <h4>Neo-Y2K Brutalist Web Kit</h4>
+              <p>High-contrast maximalist web interface components, interactive typography systems, and dynamic neon cybernetic color palettes.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: DESIGN SYSTEM</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6th Project -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">DSP + AUDIO</span>
+            <img class="gallery-img" src="img/IR_LAB.png" alt="Impulse Response Simulator Preview" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_06 // AUDIO TECH</span>
+              </div>
+              <h4>Custom Impulse Response Lab</h4>
+              <p>Acoustic cabinet tone profiling and frequency IR pipeline designed for zero-latency digital signal processors with AI tone and IR catcher.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: ON DEVELOPMENT</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7th Project (Extra Card) -->
+        <div class="gallery-card extra-project">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">VUE.JS + NODE</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="E-Commerce Web Portal" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_07 // E-COMMERCE</span>
+              </div>
+              <h4>Digital Asset Marketplace</h4>
+              <p>Full-stack digital storefront with instant file checkout, webhook callbacks, and responsive customer portal.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: COMPLETED</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8th Project (Extra Card) -->
+        <div class="gallery-card extra-project">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">CYBERSECURITY</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80" alt="Network Sentinel Auditing Tool" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_08 // NETWORKING</span>
+              </div>
+              <h4>Network Protocol Scanner</h4>
+              <p>Lightweight terminal and GUI-based network analyzer for monitoring packet latency, active ports, and connection status.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: PROTOTYPE</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9th Project (Extra Card) -->
+        <div class="gallery-card extra-project">
+          <div class="gallery-img-wrap">
+            <span class="gallery-img-tag">NEXT.JS + TAILWIND</span>
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=700&q=80" alt="Portfolio Theme Engine" />
+          </div>
+          <div class="gallery-content">
+            <div>
+              <div class="gallery-top-bar">
+                <span class="gallery-num">PROJ_09 // CREATIVE DEV</span>
+              </div>
+              <h4>Maximalist Design Framework</h4>
+              <p>Open-source design template engine featuring high-contrast retro cybernetics, parallax physics, and brutalist scaffolding.</p>
+            </div>
+            <div class="gallery-footer">
+              <span style="font-family: 'Space Mono'; font-size: 0.75rem; color: #888;">STATUS: OPEN SOURCE</span>
+              <a href="#" target="_blank" class="gallery-link">EXPLORE <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- See More Button -->
+      <div class="see-more-wrap">
+        <button id="toggleProjectsBtn" class="brutal-btn btn-pink">
+          <i class="fa-solid fa-plus" id="toggleIcon"></i> 
+          <span id="toggleText">SEE MORE PROJECTS (3 MORE)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS MATRIX -->
+    <section id="skills">
+      <div class="section-title-wrap">
+        <h2 class="section-title">
+          <i class="fa-solid fa-sliders" style="color: var(--cyan-bright);"></i> TECHNICAL SKILLS MATRIX
+        </h2>
+        <div class="title-line"></div>
+      </div>
+
+      <div class="skills-matrix-grid">
+        <!-- Front-End & Web Engineering -->
+        <div class="matrix-card matrix-card-pink">
+          <div class="matrix-header">
+            <i class="fa-solid fa-code" style="color: var(--neon-pink);"></i> Front-End & Web Engineering[cite: 1]
+          </div>
+
+          <div class="matrix-group">
+            <div class="matrix-label">LANGUAGES & CORE[cite: 1]</div>
+            <div class="matrix-pills">
+              <span class="matrix-pill">HTML5[cite: 1]</span>
+              <span class="matrix-pill">CSS3[cite: 1]</span>
+              <span class="matrix-pill">JavaScript[cite: 1]</span>
+              <span class="matrix-pill">TypeScript[cite: 1]</span>
+              <span class="matrix-pill">C++[cite: 1]</span>
+              <span class="matrix-pill">PHP[cite: 1]</span>
+              <span class="matrix-pill">Java[cite: 1]</span>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <div class="matrix-label">FRAMEWORKS & STYLING[cite: 1]</div>
+            <div class="matrix-pills">
+              <span class="matrix-pill">React[cite: 1]</span>
+              <span class="matrix-pill">Next.js[cite: 1]</span>
+              <span class="matrix-pill">Vue.js[cite: 1]</span>
+              <span class="matrix-pill">Tailwind CSS[cite: 1]</span>
+              <span class="matrix-pill">Bootstrap[cite: 1]</span>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <div class="matrix-label">STATE, TOOLS & DESIGN[cite: 1]</div>
+            <div class="matrix-pills">
+              <span class="matrix-pill">Redux[cite: 1]</span>
+              <span class="matrix-pill">Zustand[cite: 1]</span>
+              <span class="matrix-pill">Vite[cite: 1]</span>
+              <span class="matrix-pill">Webpack[cite: 1]</span>
+              <span class="matrix-pill">Git / GitHub[cite: 1]</span>
+              <span class="matrix-pill">Figma / Adobe XD[cite: 1]</span>
+              <span class="matrix-pill">WCAG Accessibility[cite: 1]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Livestreaming & Broadcasting -->
+        <div class="matrix-card matrix-card-blue">
+          <div class="matrix-header">
+            <i class="fa-solid fa-tower-broadcast" style="color: var(--electric-blue);"></i> Livestreaming & Broadcasting[cite: 1]
+          </div>
+
+          <div class="matrix-group">
+            <div class="matrix-label">SPECIALIZATION & SOFTWARE[cite: 1]</div>
+            <div class="matrix-pills">
+              <span class="matrix-pill">SOCCOM Church Events[cite: 1]</span>
+              <span class="matrix-pill">Esports Production[cite: 1]</span>
+              <span class="matrix-pill">OBS Studio[cite: 1]</span>
+              <span class="matrix-pill">Streamlabs[cite: 1]</span>
+              <span class="matrix-pill">vMix[cite: 1]</span>
+            </div>
+          </div>
+
+          <div class="matrix-group">
+            <div class="matrix-label">HARDWARE & MEDIA OPS[cite: 1]</div>
+            <div class="matrix-pills">
+              <span class="matrix-pill">Multi-Camera Setups[cite: 1]</span>
+              <span class="matrix-pill">Audio Mixers[cite: 1]</span>
+              <span class="matrix-pill">PTZ Cameras[cite: 1]</span>
+              <span class="matrix-pill">Custom Overlays & Lower-Thirds[cite: 1]</span>
+              <span class="matrix-pill">Multi-Streaming (YT/FB)[cite: 1]</span>
+              <span class="matrix-pill">Low-Latency Network Setup[cite: 1]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATIONAL ATTAINMENT & CERTIFICATES -->
+    <div class="section-title-wrap">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education & Credentials</h2>
+      <div class="title-line"></div>
+    </div>
+
+    <div class="cv-grid" id="education">
+      <!-- Educational Background -->
+      <div class="cv-card card-cyan">
+        <div class="card-header">
+          <i class="fa-solid fa-school" style="color: var(--cyan-bright);"></i> Educational Attainment
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--cyan-bright);"></div>
+            <div class="timeline-date">2024 - PRESENT</div>
+            <div class="timeline-title">Bachelor of Science in Information Technology (BSIT)[cite: 1]</div>
+            <div class="timeline-org">Philippine Christian University Manila[cite: 1]</div>
+            <div class="timeline-desc">1648 Taft Ave. Corner Pedro Gil, Ermita, Manila[cite: 1]</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--cyan-bright);"></div>
+            <div class="timeline-date">2022 - 2024</div>
+            <div class="timeline-title">Senior High School - I.T. Web Development Track[cite: 1]</div>
+            <div class="timeline-org">STI College Rosario[cite: 1]</div>
+            <div class="timeline-desc">Rosario Cavite City[cite: 1]</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--cyan-bright);"></div>
+            <div class="timeline-date">2020 - 2021</div>
+            <div class="timeline-title">Junior High School[cite: 1]</div>
+            <div class="timeline-org">Tanza National Comprehensive High School[cite: 1]</div>
+            <div class="timeline-desc">Tanza, Cavite[cite: 1]</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--cyan-bright);"></div>
+            <div class="timeline-date">2015 - 2016</div>
+            <div class="timeline-title">Elementary School[cite: 1]</div>
+            <div class="timeline-org">Felipe Calderon Elementary School[cite: 1]</div>
+            <div class="timeline-desc">Tanza, Cavite[cite: 1]</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificates & Trainings -->
+      <div class="cv-card card-yellow" id="certs">
+        <div class="card-header">
+          <i class="fa-solid fa-certificate" style="color: var(--acid-yellow);"></i> Certificates & Credentials
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--acid-yellow);"></div>
+            <div class="timeline-date">NOVEMBER 18, 2024 (UDEMY)[cite: 1]</div>
+            <div class="timeline-title">Ethical Hacking: Hack by Uploading[cite: 1]</div>
+            <div class="timeline-org">Cert No: UC-678a0953-b410-487e-bbed-4a04c340a9dc[cite: 1]</div>
+            <div class="timeline-desc">Security analysis of arbitrary file upload vectors, payload inspection, and server-side defensive hardening[cite: 1].</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--acid-yellow);"></div>
+            <div class="timeline-date">NOVEMBER 18, 2024 (UDEMY)[cite: 1]</div>
+            <div class="timeline-title">Java Fundamentals Course for Beginners[cite: 1]</div>
+            <div class="timeline-org">Cert No: UC-eblSedc9-323f-484a-9124-fb1d254127cd[cite: 1]</div>
+            <div class="timeline-desc">Object-Oriented Programming (OOP), modular architecture, data structures, and foundational algorithms[cite: 1].</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--acid-yellow);"></div>
+            <div class="timeline-date">NOVEMBER 18, 2024 (UDEMY)[cite: 1]</div>
+            <div class="timeline-title">C++ and PHP Complete Course for Beginners[cite: 1]</div>
+            <div class="timeline-org">Cert No: UC-56ae2ad0-0e79-47c3-8dfb-lcae9ed0368b[cite: 1]</div>
+            <div class="timeline-desc">Backend scripting, database integration, memory management, and structured programming paradigms[cite: 1].</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--acid-yellow);"></div>
+            <div class="timeline-date">TRAINING COMPLETION</div>
+            <div class="timeline-title">Certificate of Completion[cite: 1]</div>
+            <div class="timeline-org">DWE Enterprises[cite: 1]</div>
+            <div class="timeline-desc">Awarded to Juan Miguel P. Corpuz for professional task completion and operational support[cite: 1].</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="social-links">
+      <a href="https://github.com/miggy728" target="_blank" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="mailto:miguelcorpuz728@gmail.com" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+639943441351" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+    </div>
+
+    <div style="text-align: center;">
+      <span style="letter-spacing: 4px;">✦ ✱ ✦ ✱ ✦</span><br>
+      JUAN MIGUEL P. CORPUZ // RESUME & SHOWCASE[cite: 1]
+    </div>
+
+    <div>
+      © 2026 / ALL RIGHTS RESERVED.
+    </div>
+  </footer>
+
+  <!-- DYNAMIC JAVASCRIPT -->
+  <script>
+    // Flagship Projects
+    const flagshipProjects = [
+      {
+        title: "Space Gunner Survival",
+        desc: "A fast-paced sci-fi roguelite built with React, TypeScript, HTML5 Canvas, and Tailwind CSS, featuring mouse-aimed combat, evolving weapons, dynamic alien waves, and epic boss battles.",
+        tags: ["React", "TypeScript", "Tailwind CSS", "HTML5 Canvas"],
+        url: "https://miggy728.github.io/space-gunner-survival/",
+        liveUrl: "https://miggy728.github.io/space-gunner-survival/",
+        repoUrl: "https://github.com/miggy728/space-gunner-survival",
+        hasIframe: true,
+        icon: "fa-solid fa-gamepad",
+        sub: "Interactive Web Game / Roguelite"
+      },
+      {
+        title: "Live Stream Control Engine",
+        desc: "A centralized control dashboard for live OBS/vMix video switching, automated lower-third ticker generators, and multi-platform RTMP distribution.",
+        tags: ["OBS Studio", "vMix", "WebSockets", "Multi-RTMP", "TypeScript"],
+        url: "https://stream.migsdev.io/control",
+        liveUrl: "https://example.com/stream",
+        repoUrl: "https://github.com",
+        hasIframe: false,
+        icon: "fa-solid fa-tower-broadcast",
+        sub: "Real-Time Media Pipeline"
+      },
+      {
+        title: "Enterprise Admin & Data Suite",
+        desc: "A secured administrative hub with role-based access control (RBAC), complex database indexing, dynamic data tables, and RESTful API integrations.",
+        tags: ["PHP", "MySQL", "Java", "REST API", "Tailwind CSS"],
+        url: "https://admin.migsdev.io/dashboard",
+        liveUrl: "https://example.com/admin",
+        repoUrl: "https://github.com",
+        hasIframe: false,
+        icon: "fa-solid fa-database",
+        sub: "Database & Backend Infrastructure"
+      }
+    ];
+
+    // Showcase Controls
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const projTitle = document.getElementById('projTitle');
+    const projDesc = document.getElementById('projDesc');
+    const projTags = document.getElementById('projTags');
+    const mockUrl = document.getElementById('mockUrl');
+    const projLink = document.getElementById('projLink');
+    const repoLink = document.getElementById('repoLink');
+    const iframeWrapper = document.getElementById('iframeWrapper');
+    const liveFrame = document.getElementById('liveFrame');
+    const fallbackPreview = document.getElementById('fallbackPreview');
+    const mockIcon = document.getElementById('mockIcon');
+    const mockTitle = document.getElementById('mockTitle');
+    const mockSub = document.getElementById('mockSub');
+
+    // Dynamic Viewport Autoscale Function (Prevents mobile zoom-in effect)
+    function resizeIframeScale() {
+      if (!iframeWrapper) return;
+      const containerWidth = iframeWrapper.clientWidth;
+      const containerHeight = iframeWrapper.clientHeight;
+      const targetWidth = 1440;
+      const targetHeight = 900;
+
+      // Scale fitting calculation
+      const scaleX = containerWidth / targetWidth;
+      const scaleY = containerHeight / targetHeight;
+      const scale = Math.min(scaleX, scaleY);
+
+      liveFrame.style.transform = `scale(${scale})`;
+      // Center the scaled virtual frame inside preview container
+      liveFrame.style.left = `${(containerWidth - (targetWidth * scale)) / 2}px`;
+      liveFrame.style.top = `${(containerHeight - (targetHeight * scale)) / 2}px`;
+    }
+
+    window.addEventListener('resize', resizeIframeScale);
+
+    function loadProject(index) {
+      const proj = flagshipProjects[index];
+
+      projTitle.textContent = proj.title;
+      projDesc.textContent = proj.desc;
+      mockUrl.textContent = proj.url;
+      projLink.href = proj.liveUrl;
+      repoLink.href = proj.repoUrl;
+
+      if (proj.hasIframe && proj.liveUrl) {
+        iframeWrapper.style.display = "block";
+        fallbackPreview.style.display = "none";
+        liveFrame.src = proj.liveUrl;
+        setTimeout(resizeIframeScale, 50);
+      } else {
+        iframeWrapper.style.display = "none";
+        fallbackPreview.style.display = "flex";
+        liveFrame.src = "about:blank";
+        mockIcon.className = proj.icon;
+        mockTitle.textContent = proj.title.toUpperCase();
+        mockSub.textContent = proj.sub;
+      }
+
+      projTags.innerHTML = '';
+      proj.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'stack-tag';
+        span.textContent = tag;
+        projTags.appendChild(span);
+      });
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const i = btn.getAttribute('data-index');
+        loadProject(i);
+      });
+    });
+
+    // Initial load: 1st project
+    loadProject(0);
+
+    // =========================================
+    // DYNAMIC "SEE MORE" TOGGLE LOGIC
+    // =========================================
+    const toggleBtn = document.getElementById('toggleProjectsBtn');
+    const extraProjects = document.querySelectorAll('.extra-project');
+    const toggleText = document.getElementById('toggleText');
+    const toggleIcon = document.getElementById('toggleIcon');
+    let isExpanded = false;
+
+    if (extraProjects.length === 0) {
+      document.querySelector('.see-more-wrap').style.display = 'none';
+    } else {
+      toggleText.textContent = `SEE MORE PROJECTS (${extraProjects.length} MORE)`;
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+
+      extraProjects.forEach(card => {
+        card.style.display = isExpanded ? 'flex' : 'none';
+      });
+
+      if (isExpanded) {
+        toggleText.textContent = 'SHOW LESS';
+        toggleIcon.className = 'fa-solid fa-minus';
+      } else {
+        toggleText.textContent = `SEE MORE PROJECTS (${extraProjects.length} MORE)`;
+        toggleIcon.className = 'fa-solid fa-plus';
+        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Mouse Parallax for Glowing Spheres
+    window.addEventListener('mousemove', (e) => {
+      const orbs = document.querySelectorAll('.orb');
+      const mouseX = (e.clientX / window.innerWidth - 0.5) * 25;
+      const mouseY = (e.clientY / window.innerHeight - 0.5) * 25;
+
+      orbs.forEach((orb, i) => {
+        const factor = (i + 1) * 0.7;
+        orb.style.transform = `translate(${mouseX * factor}px, ${mouseY * factor}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
